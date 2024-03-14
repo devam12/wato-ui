@@ -1,16 +1,10 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-  SafeAreaView,
-  Image,
-  TouchableOpacity,
-} from "react-native";
+import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import React from "react";
-import StyleUtility, { FontWeight } from "../common/styles";
+import { FontWeight } from "../common/styles";
 import Svg, { Path } from "react-native-svg";
-import { useNavigation, useTheme } from "@react-navigation/native";
+import { useNavigation } from "@react-navigation/native";
 import { RouteNames } from "./../common/constants";
+import GodRay from "../component/GodRay";
 
 const Started = () => {
   const navigation = useNavigation();
@@ -32,6 +26,8 @@ const Started = () => {
         paddingTop: 296,
       }}
     >
+      <GodRay />
+
       <View style={{ marginBottom: 18 }}>
         <Svg
           width="132"

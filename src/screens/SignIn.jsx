@@ -7,17 +7,17 @@ import {
   View,
 } from "react-native";
 import React from "react";
-import StyleUtility, { FontWeight } from "../common/styles";
-import { useNavigation, useTheme } from "@react-navigation/native";
+import { FontWeight } from "../common/styles";
+import { useNavigation } from "@react-navigation/native";
 import { RouteNames } from "../common/constants";
-
+import BoxGradient from "../component/BoxGradient";
 
 const SignIn = () => {
   const navigation = useNavigation();
 
-  const handleSignUp = ()=>{
+  const handleSignUp = () => {
     navigation.navigate(RouteNames.SIGNUP_SCREEN);
-  }
+  };
   return (
     <View
       style={{
@@ -37,6 +37,8 @@ const SignIn = () => {
           style={styles.imageBackground}
           resizeMode="cover"
         />
+
+        <BoxGradient />
 
         {/* main contaner */}
         <View style={styles.formContainer}>
@@ -203,4 +205,9 @@ const styles = StyleSheet.create({
     height: 20,
     width: 20,
   },
+
+  container: {
+    position: "absolute",
+  },
+
 });

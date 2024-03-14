@@ -7,10 +7,11 @@ import {
   View,
 } from "react-native";
 import React from "react";
-import StyleUtility, { FontWeight } from "../common/styles";
+import { FontWeight } from "../common/styles";
 import CheckBox from "react-native-check-box";
-import { useNavigation, useTheme } from "@react-navigation/native";
+import { useNavigation } from "@react-navigation/native";
 import { RouteNames } from "../common/constants";
+import BoxGradient from "../component/BoxGradient";
 
 const SignUp = () => {
   const navigation = useNavigation();
@@ -38,6 +39,8 @@ const SignUp = () => {
           style={styles.imageBackground}
           resizeMode="cover"
         />
+
+        <BoxGradient />
 
         {/* main contaner */}
         <View style={styles.formContainer}>
