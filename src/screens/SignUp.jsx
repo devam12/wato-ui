@@ -2,7 +2,6 @@ import {
   Image,
   StyleSheet,
   Text,
-  TextInput,
   TouchableOpacity,
   View,
 } from "react-native";
@@ -12,6 +11,12 @@ import CheckBox from "react-native-check-box";
 import { useNavigation } from "@react-navigation/native";
 import { RouteNames } from "../common/constants";
 import BoxGradient from "../component/BoxGradient";
+import GoogleSign from "../component/GoogleSign";
+import ORDivider from "../component/ORDivider";
+import PrimaryButton from "../component/PrimaryButton";
+import Input from "../component/Input";
+import SwitchLine from "../component/SwitchLine";
+import HeaderText from "../component/HeaderText";
 
 const SignUp = () => {
   const navigation = useNavigation();
@@ -28,9 +33,7 @@ const SignUp = () => {
         paddingHorizontal: 20,
       }}
     >
-      <View style={styles.firstLine}>
-        <Text style={styles.firstLineText}>Please sign-up to your account</Text>
-      </View>
+      <HeaderText text={"Please sign-up to your account"} />
 
       {/* Form Box */}
       <View style={{ borderRadius: 10, overflow: "hidden" }}>
@@ -48,25 +51,14 @@ const SignUp = () => {
           <View style={styles.containerFirstBox}>
             {/* Textbox Container */}
             <View style={styles.textBoxContainer}>
-              <TextInput
-                style={styles.input}
-                placeholder="Name"
-                placeholderTextColor={"rgba(255, 255, 255, 0.4)"}
-              />
-              <TextInput
-                style={styles.input}
-                placeholder="Email"
-                placeholderTextColor={"rgba(255, 255, 255, 0.4)"}
-              />
-              <TextInput
-                style={styles.input}
-                placeholder="Password"
-                placeholderTextColor={"rgba(255, 255, 255, 0.4)"}
-              />
+              <Input placeholder="Name"></Input>
+              <Input placeholder="Email"></Input>
+              <Input placeholder="Password"></Input>
             </View>
 
             {/* Forgot Text Container */}
             <View style={styles.policyContainer}>
+
               {/* I acknowledge that this not recommended for use due to its limitations. However, we are utilizing it solely for styling purposes */}
               <View style={{ marginRight: 5 }}>
                 <CheckBox
@@ -81,6 +73,7 @@ const SignUp = () => {
               <Text style={[styles.policyText, { color: "#FFF" }]}>
                 I agree &nbsp;
               </Text>
+
               <TouchableOpacity>
                 <Text style={styles.policyText}>to privacy policy & terms</Text>
               </TouchableOpacity>
@@ -91,55 +84,23 @@ const SignUp = () => {
           <View style={styles.containerSecondBox}>
             {/* Login Container */}
             <View style={{ gap: 20 }}>
-              <TouchableOpacity
-                style={{
-                  backgroundColor: "#D4FB54",
-                  borderRadius: 4,
-                  paddingHorizontal: 18,
-                  paddingVertical: 8,
-                  gap: 8,
-                }}
-              >
-                <Text style={styles.buttonText}>Sign Up</Text>
-              </TouchableOpacity>
 
-              <View
-                style={[
-                  styles.policyText,
-                  {
-                    flexDirection: "row",
-                    alignItems: "center",
-                    justifyContent: "center",
-                  },
-                ]}
-              >
-                <Text style={[{ color: "#FFF", opacity: 0.7 }]}>
-                  Already have an account? &nbsp;
-                </Text>
-                <TouchableOpacity onPress={handleSignIn}>
-                  <Text style={{ color: "#D4FB54", opacity: 1 }}>
-                    Sign in instead
-                  </Text>
-                </TouchableOpacity>
-              </View>
+              {/* Button */}
+              <PrimaryButton text={"Sign Up"} />
+
+              {/* Need to sign in */}
+              <SwitchLine
+                message={"Already have an account?"}
+                touchbleMessage={"Sign in instead"}
+                onPress={handleSignIn}
+              />
             </View>
 
             {/* Diwider OR */}
-            <Text style={[styles.buttonText, { color: "#FFF", opacity: 0.6 }]}>
-              or
-            </Text>
+            <ORDivider />
 
             {/* Google Button Container */}
-            <TouchableOpacity style={styles.googleButton}>
-              <Image
-                source={require("../../assets/image/google.png")}
-                style={styles.googleImage}
-                resizeMode="contain"
-              ></Image>
-              <Text style={[styles.buttonText, { color: "#FFF" }]}>
-                Continue Woith Google
-              </Text>
-            </TouchableOpacity>
+            <GoogleSign />
           </View>
         </View>
       </View>
@@ -150,17 +111,6 @@ const SignUp = () => {
 export default SignUp;
 
 const styles = StyleSheet.create({
-  firstLine: {
-    height: 26,
-    marginTop: 138,
-    marginBottom: 32,
-  },
-  firstLineText: {
-    fontWeight: FontWeight.THIN,
-    fontSize: 18,
-    lineHeight: 26,
-    color: "#FFF",
-  },
   imageBackground: {
     position: "absolute",
     width: "100%",
@@ -183,16 +133,6 @@ const styles = StyleSheet.create({
   textBoxContainer: {
     gap: 20,
   },
-  input: {
-    height: 48,
-    paddingHorizontal: 16,
-    borderWidth: 1,
-    borderColor: "#FFF",
-    backgroundColor: "transparent",
-    borderRadius: 10,
-    color: "#FFF",
-    gap: 10,
-  },
   policyContainer: {
     flexDirection: "row",
     alignItems: "center",
@@ -204,29 +144,5 @@ const styles = StyleSheet.create({
     lineHeight: 18,
     textAlign: "right",
     color: "#D4FB54",
-  },
-  buttonText: {
-    fontWeight: FontWeight.MEDIUM,
-    fontSize: 14,
-    lineHeight: 22,
-    color: "black",
-    textAlign: "center",
-  },
-
-  googleButton: {
-    borderColor: "#FFF",
-    borderWidth: 1,
-    borderRadius: 4,
-    paddingHorizontal: 18,
-    paddingVertical: 8,
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
-    gap: 8,
-  },
-
-  googleImage: {
-    height: 20,
-    width: 20,
   },
 });
