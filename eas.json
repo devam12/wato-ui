@@ -14,9 +14,23 @@
       }
     },
     "preview": {
-      "distribution": "internal"
+      "distribution": "internal",
+      "ios": {
+        "resourceClass": "m-medium"
+      },
+      "android": {
+        "buildType": "apk"
+      }
     },
-    "production": {}
+    "production": {
+      "distribution": "internal",
+      "ios": {
+        "resourceClass": "m-medium"
+      },
+      "android": {
+        "buildType": "apk"
+      }
+    }
   },
   "submit": {
     "production": {}
